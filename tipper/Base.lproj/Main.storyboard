@@ -84,7 +84,18 @@
                             <outletCollection property="gestureRecognizers" destination="BNT-Hv-2qm" appends="YES" id="y6a-eC-vhj"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tipper" id="Nq8-E9-4tr"/>
+                    <navigationItem key="navigationItem" title="Tipper" id="Nq8-E9-4tr">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="4L4-oH-cwp">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="v8P-xl-D1K">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="m3k-yY-vts" kind="push" id="Wbw-Cs-LfX"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billTextField" destination="Hbs-lA-u9O" id="eNX-Dx-sdw"/>
                         <outlet property="selectedTip" destination="IVh-nv-ctc" id="h3r-FR-izX"/>
@@ -100,6 +111,21 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="672.5" y="125.5"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="qEK-VU-OTx">
+            <objects>
+                <viewController id="m3k-yY-vts" customClass="SettingsViewController" customModule="tipper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B8i-4s-MS8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uUt-TO-zhl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Bk-li-tdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175" y="156"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IcF-mt-QQu">

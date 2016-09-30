@@ -15,6 +15,7 @@
 		854544511D9DEB0D00C525C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8545444F1D9DEB0D00C525C7 /* LaunchScreen.storyboard */; };
 		8545445C1D9DEB0D00C525C7 /* tipperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8545445B1D9DEB0D00C525C7 /* tipperTests.swift */; };
 		854544671D9DEB0D00C525C7 /* tipperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854544661D9DEB0D00C525C7 /* tipperUITests.swift */; };
+		854544751D9E366000C525C7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854544741D9E366000C525C7 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		854544621D9DEB0D00C525C7 /* tipperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tipperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		854544661D9DEB0D00C525C7 /* tipperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tipperUITests.swift; sourceTree = "<group>"; };
 		854544681D9DEB0D00C525C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		854544741D9E366000C525C7 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				854544431D9DEB0D00C525C7 /* AppDelegate.swift */,
 				854544451D9DEB0D00C525C7 /* ViewController.swift */,
 				854544471D9DEB0D00C525C7 /* Main.storyboard */,
+				854544741D9E366000C525C7 /* SettingsViewController.swift */,
 				8545444D1D9DEB0D00C525C7 /* Assets.xcassets */,
 				8545444F1D9DEB0D00C525C7 /* LaunchScreen.storyboard */,
 				854544521D9DEB0D00C525C7 /* Info.plist */,
@@ -265,6 +268,7 @@
 				8545444C1D9DEB0D00C525C7 /* tipper.xcdatamodeld in Sources */,
 				854544461D9DEB0D00C525C7 /* ViewController.swift in Sources */,
 				854544441D9DEB0D00C525C7 /* AppDelegate.swift in Sources */,
+				854544751D9E366000C525C7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
