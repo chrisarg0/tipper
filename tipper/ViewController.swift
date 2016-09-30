@@ -22,6 +22,11 @@ class ViewController: UIViewController {
         
         //bring bill amount text field in focus
         billTextField.becomeFirstResponder();
+        let defaults = UserDefaults.standard;
+        let intValue = defaults.integer(forKey: "defaultTip");
+        selectedTip.selectedSegmentIndex = intValue
+
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +48,12 @@ class ViewController: UIViewController {
     @IBAction func onTap(_ sender: AnyObject) {
         view.endEditing(true);
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let defaults = UserDefaults.standard;
+        let intValue = defaults.integer(forKey: "defaultTip");
+        selectedTip.selectedSegmentIndex = intValue;
+    }
 }
 
