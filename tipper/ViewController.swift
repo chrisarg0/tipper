@@ -19,14 +19,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //bring bill amount text field in focus
         billTextField.becomeFirstResponder();
-        let defaults = UserDefaults.standard;
-        let intValue = defaults.integer(forKey: "defaultTip");
+        let intValue = getDefaultTipSelectedIndex();
         selectedTip.selectedSegmentIndex = intValue
-
-    
+        
+        getBillDetailsFromUserDefaults();
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,13 +45,46 @@ class ViewController: UIViewController {
 
     @IBAction func onTap(_ sender: AnyObject) {
         view.endEditing(true);
+        setBillDetailsToUserDefaults(billAmount: billTextField.text!, savedAtTime: NSDate());
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let defaults = UserDefaults.standard;
-        let intValue = defaults.integer(forKey: "defaultTip");
+        let intValue = getDefaultTipSelectedIndex();
         selectedTip.selectedSegmentIndex = intValue;
     }
+    
+    
+    func getDefaultTipSelectedIndex()->Int{
+        let defaults = UserDefaults.standard;
+        return defaults.integer(forKey: "defaultTip");
+    }
+    
+    //set bill amount and current time to user defaults
+    func setBillDetailsToUserDefaults(billAmount:String?, savedAtTime:NSDate){
+        if let someBillAmount = billAmount{
+        let defaults = UserDefaults.standard;
+        defaults.set(someBillAmount, forKey:"billAmount");
+        defaults.set(savedAtTime, forKey: "savedAtTime");
+        defaults.synchronize();
+        }
+    }
+    
+    func getBillDetailsFromUserDefaults(){
+        let defaults = UserDefaults.standard;
+        let savedBillAmount = defaults.string(forKey: "billAmount");
+        let savedTime = defaults.object(forKey: "savedAtTime")as! NSDate;
+        switch NSDate().compare(savedTime.addingTimeInterval(600) as Date) {
+        case .orderedAscending:
+            billTextField.text = "";
+            defaults.removeObject(forKey: "billAmount");
+            defaults.removeObject(forKey: "savedAtTime")
+        case .orderedDescending, .orderedSame  :
+            billTextField.text = savedBillAmount;
+            defaults.set(NSDate(), forKey: "savedAtTime");
+        }
+    }
+    
+    
 }
 
