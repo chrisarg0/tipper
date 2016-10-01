@@ -14,7 +14,7 @@ The following **required** functionality is complete:
 * [X] Settings page to change the default tip percentage.
 
 The following **optional** features are implemented:
-* [ ] UI animations
+* [ ] UI animations(I tried some code online, not sure if i have it working on not, so i am going to mark it undone)
 * [X] Remembering the bill amount across app restarts (if <10mins)
 * [ ] Using locale-specific currency and currency thousands separators.
 * [X] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
@@ -26,7 +26,8 @@ The following **additional** features are implemented:
 - [X] Round the tip to nearest Dollar
 - [X] No Tip on Tax (deducts 10 % from bill amount)
 - [X] Split Bill tab between for given number of users
-- [] Choose my Tip (Based on your experience, place you are visiting, suggest me a tip)
+- [ ] Choose my Tip (Based on your experience, place you are visiting, suggest me a tip)
+- [ ] Save tip/Bill History
 
 
 ## Video Walkthrough 

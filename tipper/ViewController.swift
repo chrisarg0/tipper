@@ -93,16 +93,33 @@ class ViewController: UIViewController {
             totalAmount = round(totalAmount);
         }
         
+        print(totalAmount);
+        print(tipAmount);
+        
+        let totalAmountNSNumber = totalAmount as NSNumber;
+        let tipAmountNSNumber = tipAmount as NSNumber;
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        formatter.locale = NSLocale.current
         
         
-        tipLabel.text = String(format: "%.2f", tipAmount);
-        totalField.text = String(format: "%.2f", totalAmount);
+        tipLabel.text = formatter.string(from: tipAmountNSNumber);
+        totalField.text = formatter.string(from: totalAmountNSNumber);
     
     }
 
     @IBAction func onTap(_ sender: AnyObject) {
         view.endEditing(true);
         setBillDetailsToUserDefaults(billAmount: billTextField.text!, savedAtTime: NSDate());
+        let animations = {
+            self.billTextField.alpha = 1
+            self.tipLabel.alpha = 1
+            self.totalField.alpha = 1
+        }
+        
+        UIView.animate(withDuration: 1, animations: animations)
     }
     
     override func viewWillAppear(_ animated: Bool) {
