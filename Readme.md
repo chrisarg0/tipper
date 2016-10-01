@@ -4,7 +4,7 @@ Tipper is a tip calculator application for iOS.
 
 Submitted by: Harsh Trivedi
 
-Time spent: 9 hours spent in total
+Time spent: 11 hours spent in total
 
 ## User Stories
 
@@ -14,9 +14,9 @@ The following **required** functionality is complete:
 * [X] Settings page to change the default tip percentage.
 
 The following **optional** features are implemented:
-* [ ] UI animations(I tried some code online, not sure if i have it working on not, so i am going to mark it undone)
+* [ ] UI animations(I tried some code when trying to learn it online, not sure if i have it working on not(no errors), so marking it undone :(
 * [X] Remembering the bill amount across app restarts (if <10mins)
-* [ ] Using locale-specific currency and currency thousands separators.
+* [X] Using locale-specific currency and currency thousands separators.
 * [X] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
 The following **additional** features are implemented:
