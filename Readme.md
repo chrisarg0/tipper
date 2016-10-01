@@ -25,7 +25,7 @@ The following **additional** features are implemented:
 - [X] Night mode
 - [X] Round the tip to nearest Dollar
 - [X] No Tip on Tax (deducts 10 % from bill amount)
-- [] Split Bill tab between for given number of users
+- [X] Split Bill tab between for given number of users
 - [] Choose my Tip (Based on your experience, place you are visiting, suggest me a tip)
 
 

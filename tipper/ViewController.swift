@@ -17,6 +17,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var selectedTip: UISegmentedControl!
     
+    @IBOutlet weak var splitStepper: UIStepper!
+    
+    @IBOutlet weak var splitEnabled: UISwitch!
+    
+    @IBOutlet weak var splitCount: UILabel!
+    
     var noTiponTaxFetched:Bool = false;
     var roundToNearestFullNumber:Bool = false;
     
@@ -42,6 +48,25 @@ class ViewController: UIViewController {
         setSegmentMentedControlTextAndPercentage();
         setUserScreenMode();
     }
+    @IBAction func splitEnabledChanged(_ sender: AnyObject) {
+        if(splitEnabled.isOn){
+            splitCount.text = "2";
+            splitStepper.isEnabled = true;
+            
+        }else{
+            splitCount.text = "1";
+            splitStepper.isEnabled = false;
+        }
+        calculateTip(self);
+    }
+    @IBAction func splitStepperValueChanged(_ sender: AnyObject) {
+        print(splitStepper.value.description);
+        var stepperValue = splitStepper.value.description;
+        stepperValue = stepperValue.replacingOccurrences(of: ".0", with: "");
+        print(stepperValue);
+        splitCount.text = stepperValue;
+        calculateTip(self);
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -58,6 +83,11 @@ class ViewController: UIViewController {
         
         
         var totalAmount = billAmount + tipAmount;
+        
+        if(splitEnabled.isOn){
+           let splitCountDouble = Double(splitCount.text!);
+            totalAmount = totalAmount/splitCountDouble!;
+        }
         
         if(roundToNearestFullNumber){
             totalAmount = round(totalAmount);
