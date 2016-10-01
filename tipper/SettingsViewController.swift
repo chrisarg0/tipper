@@ -10,6 +10,16 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var firstTab: UITextField!
+    
+    @IBOutlet weak var secondTab: UITextField!
+    
+    @IBOutlet weak var thirdTab: UITextField!
+    
+    @IBOutlet weak var FourthTab: UITextField!
+    
+    @IBOutlet weak var nightModeSwitch: UISwitch!
+    
     @IBOutlet weak var defaultTip: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +33,16 @@ class SettingsViewController: UIViewController {
         
         let intValue = defaults.integer(forKey: "defaultTip")
         
-            defaultTip.selectedSegmentIndex = intValue;
+        nightModeSwitch.setOn(defaults.bool(forKey: "nightMode"), animated: true);
+        
+        defaultTip.selectedSegmentIndex = intValue;
+        
+        defaults.set(firstTab.text! + "%", forKey: "firstTab");
+        defaults.set(secondTab.text! + "%", forKey: "secondTab");
+        defaults.set(thirdTab.text! + "%", forKey: "thirdTab");
+        defaults.set(FourthTab.text! + "%", forKey: "fourthTab");
+        defaults.synchronize();
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,6 +51,16 @@ class SettingsViewController: UIViewController {
     }
     
 
+    @IBAction func tabValueChanged(_
+        sender: AnyObject) {
+        
+        let defaults = UserDefaults.standard;
+        defaults.set(firstTab.text, forKey: "firstTab");
+        defaults.set(secondTab.text, forKey: "secondTab");
+        defaults.set(thirdTab.text, forKey: "thirdTab");
+        defaults.set(FourthTab.text, forKey: "fourthTab");
+        defaults.synchronize();
+    }
    
     @IBAction func defaultTipValueChanged(_ sender: AnyObject) {
         //get the NSUserDefaults
@@ -41,4 +70,9 @@ class SettingsViewController: UIViewController {
         defaults.synchronize();
     }
 
+    @IBAction func nightModeSwitchChanged(_ sender: AnyObject) {
+        let defaults = UserDefaults.standard
+        
+        defaults.set(nightModeSwitch.isOn, forKey: "nightMode");
+    }
 }
