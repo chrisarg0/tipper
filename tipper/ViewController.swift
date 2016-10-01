@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var selectedTip: UISegmentedControl!
     
+    var noTiponTaxFetched:Bool = false;
+    var roundToNearestFullNumber:Bool = false;
+    
     var tipPercentages = [0.12, 0.15, 0.18, 0.20];
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +32,10 @@ class ViewController: UIViewController {
         defaults.set(selectedTip.titleForSegment(at: 1), forKey: "secondTab");
         defaults.set(selectedTip.titleForSegment(at: 2), forKey: "thirdTab");
         defaults.set(selectedTip.titleForSegment(at: 3), forKey: "fourthTab");
-        defaults.set(false, forKey: "nightMode");
+        
+        //defaults.set(false, forKey: "nightMode");
+        //defaults.set(false, forKey: "roundToFullDollar");
+        //defaults.set(false, forKey: "noTipOnTax");
         defaults.synchronize();
         
         getBillDetailsFromUserDefaults();
@@ -42,11 +48,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func calculateTip(_ sender: AnyObject) {
+        var billAmount = Double(billTextField.text!) ?? 0.00;
         
-        let billAmount = Double(billTextField.text!) ?? 0.00;
+        if(noTiponTaxFetched){
+            billAmount = billAmount * 0.90;
+        }
+        
         let tipAmount = billAmount * tipPercentages[selectedTip.selectedSegmentIndex];
         
-        let totalAmount = billAmount + tipAmount;
+        
+        var totalAmount = billAmount + tipAmount;
+        
+        if(roundToNearestFullNumber){
+            totalAmount = round(totalAmount);
+        }
+        
+        
         
         tipLabel.text = String(format: "%.2f", tipAmount);
         totalField.text = String(format: "%.2f", totalAmount);
@@ -64,6 +81,8 @@ class ViewController: UIViewController {
         selectedTip.selectedSegmentIndex = intValue;
         setSegmentMentedControlTextAndPercentage();
         setUserScreenMode();
+        setUserSelectedModes();
+        calculateTip(self);
     }
     
     
@@ -142,11 +161,17 @@ class ViewController: UIViewController {
             view.backgroundColor = UIColor.white;
             tipLabel.textColor = UIColor.black;
             totalField.textColor = UIColor.black;
-            billTextField.textColor = UIColor.white;
+            billTextField.textColor = UIColor.black;
             billTextField.backgroundColor = UIColor.white;
             selectedTip.backgroundColor = UIColor.white;
             selectedTip.tintColor = UIColor.blue;
         }
+    }
+    
+    func setUserSelectedModes(){
+        let defaults = UserDefaults.standard;
+        noTiponTaxFetched = defaults.bool(forKey: "noTipOnTax");
+        roundToNearestFullNumber = defaults.bool(forKey: "roundToFullDollar");
     }
     
     

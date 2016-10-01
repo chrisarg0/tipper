@@ -261,15 +261,46 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="YVZ-FK-oFe">
+                                <frame key="frameInset" minX="284" minY="453" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="roundToFullDollarChanged:" destination="m3k-yY-vts" eventType="valueChanged" id="JD4-lu-EQC"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Round to Full Dollar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RgV-Ap-cJf">
+                                <frame key="frameInset" minX="37" minY="453" width="149" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="tlj-QV-mTQ">
+                                <frame key="frameInset" minX="284" minY="492" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="NoTipOnTaxChanged:" destination="m3k-yY-vts" eventType="touchUpInside" id="DlI-rP-d12"/>
+                                    <action selector="NoTipOnTaxChanged:" destination="m3k-yY-vts" eventType="valueChanged" id="gaL-Vs-eDV"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Tip on Tax( - 10% on bill)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BHZ-Kc-j75">
+                                <frame key="frameInset" minX="37" minY="492" width="214" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="uUt-TO-zhl"/>
                     <connections>
                         <outlet property="FourthTab" destination="89y-Z5-0QR" id="ivb-gP-OrV"/>
+                        <outlet property="NoTipOnTax" destination="tlj-QV-mTQ" id="O3q-Ax-Ycn"/>
                         <outlet property="defaultTip" destination="W7T-9a-SPP" id="yR1-Ie-54p"/>
                         <outlet property="firstTab" destination="E0d-kc-DBu" id="NlT-Af-Ppf"/>
                         <outlet property="nightModeSwitch" destination="tuW-8v-z5w" id="l2k-HZ-fGi"/>
+                        <outlet property="roundToFullDollarSwitch" destination="YVZ-FK-oFe" id="7wc-sH-ljX"/>
                         <outlet property="secondTab" destination="C0m-2z-AWn" id="rrc-45-aYK"/>
                         <outlet property="thirdTab" destination="1GL-ty-ePZ" id="f4T-1m-hck"/>
                     </connections>

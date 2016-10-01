@@ -20,6 +20,14 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var nightModeSwitch: UISwitch!
     
+    @IBOutlet weak var roundToFullDollarSwitch: UISwitch!
+    
+    
+    @IBOutlet weak var NoTipOnTax: UISwitch!
+    
+    
+    
+    
     @IBOutlet weak var defaultTip: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +42,12 @@ class SettingsViewController: UIViewController {
         let intValue = defaults.integer(forKey: "defaultTip")
         
         nightModeSwitch.setOn(defaults.bool(forKey: "nightMode"), animated: true);
+        print(defaults.bool(forKey: "roundToFullDollar"));
+        print(defaults.bool(forKey:"noTipOnTax"));
+        
+        roundToFullDollarSwitch.setOn(defaults.bool(forKey: "roundToFullDollar"), animated: true);
+        
+        NoTipOnTax.setOn(defaults.bool(forKey: "noTipOnTax"), animated: true);
         
         defaultTip.selectedSegmentIndex = intValue;
         
@@ -72,7 +86,18 @@ class SettingsViewController: UIViewController {
 
     @IBAction func nightModeSwitchChanged(_ sender: AnyObject) {
         let defaults = UserDefaults.standard
-        
         defaults.set(nightModeSwitch.isOn, forKey: "nightMode");
     }
+    @IBAction func NoTipOnTaxChanged(_ sender: AnyObject) {
+        let defaults = UserDefaults.standard
+        defaults.set(NoTipOnTax.isOn, forKey: "noTipOnTax");
+    }
+    
+    @IBAction func roundToFullDollarChanged(_ sender: AnyObject) {
+        let defaults = UserDefaults.standard
+        defaults.set(roundToFullDollarSwitch.isOn, forKey: "roundToFullDollar");
+        
+        print(defaults.bool(forKey: "roundToFullDollar"));
+    }
+    
 }
